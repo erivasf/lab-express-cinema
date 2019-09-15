@@ -8,8 +8,7 @@ exports.moviesPage = async (req, res) => {
   res.render('movies', {movies})
 }
 exports.moviesDetails = async (req, res) => {
-  const {
-    id
-  } = req.params
+  const {id} = req.params
   const movies = await Movie.findById(id)
-  res.render('movies-details', {movies})
+  res.render('movies-details', movies)
+}
