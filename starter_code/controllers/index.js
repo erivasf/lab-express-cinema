@@ -5,14 +5,11 @@ exports.indexView = (req, res) => {
 }
 exports.moviesPage = async (req, res) => {
   const movies = await Movie.find()
-  res.render('movies', {
-    movies
-  })
+  res.render('movies', {movies})
 }
 exports.moviesDetails = async (req, res) => {
   const {
     id
   } = req.params
   const movies = await Movie.findById(id)
-  res.render('movies-details', movies)
-}
+  res.render('movies-details', {movies})
